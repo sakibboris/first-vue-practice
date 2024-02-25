@@ -1,18 +1,21 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+    <SliderComps :msg="cardtext" :imageUrl="image" />
   </div>
 </template>
 
 <script lang="ts">
-import { Options, Vue } from 'vue-class-component';
-import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
-
-@Options({
-  components: {
-    HelloWorld,
+import SliderComps from '@/components/SliderComps.vue';
+export default {
+  props: ['heading'],
+  data() {
+    return {
+      cardtext: 'This is Home Page Text',
+      image: 'https://media.geeksforgeeks.org/wp-content/cdn-uploads/20220505001016/5-Vue.Js-Advantages-That-Every-Developer-Must-Know.jpg'
+    }
   },
-})
-export default class HomeView extends Vue {}
+  components: {
+    SliderComps,
+  },
+}
 </script>
